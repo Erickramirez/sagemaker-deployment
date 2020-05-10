@@ -89,7 +89,6 @@ def predict_fn(input_data, model):
     # TODO: Compute the result of applying the model to the input data. The variable `result` should
     #       be a numpy array which contains a single integer which is either 1 or 0
     
-    output = model(data).detach().cpu().numpy()
-    result = np.round(output.numpy()) 
+    result = np.round(model(data).detach().cpu().numpy()).astype(np.int)
 
     return result
